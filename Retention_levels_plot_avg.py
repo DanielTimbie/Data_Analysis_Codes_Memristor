@@ -55,11 +55,6 @@ def import_data():
         plt.xlabel('Time (s)', weight='bold', fontsize = 14)
     plt.show()
 
-
-
-
-        # pd.read_csv(i, header=None).T[1][1:][::-1]
-
 import_data()
 
 
