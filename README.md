@@ -12,7 +12,7 @@ Outputs now come in four different flavors: we have:\
 # Analysis codes:
 
 The important analysis codes are:\
-Replot.py - replots data from a folder to reconstruct the original PNG files output by the measurement software/
-Time_drift_plot.py - plots the time drift of a given set of data\
-Retention_levels_plot.py  - plots the average time drift of a set of measurements, along with the standard deviation at each point\
-Retention_levels_plot_avg.py - plots the 
+• replot.py - replots data from a folder to reconstruct the original PNG files output by the measurement software\
+• retention_levels_plot.py  - plots the time drift of a given set of data\
+• retention_levels_plot_avg.py - plots the average time drift of a set of measurements, along with the standard deviation at each point\
+• retention_levels_plot_rms_error.py - accompanies retention_levels_plot_avg.py and gives a plot of the drift of the error.
