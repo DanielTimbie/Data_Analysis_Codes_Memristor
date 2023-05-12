@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # set target directory for retention plot - directory should contain CSV files for one device
-tg_dir = '/Users/GuestUser/Documents/Labwork/Memristor/Data Analysis Codes//FIB3_S8_1_50_low_drift_LP6dB6dBHz_Integ1.0_retentiondata'
+tg_dir = '/Users/GuestUser/Documents/Labwork/Memristor/Data Analysis Codes/data/FIB3_S8_1_50_low_drift_LP6dB6dBHz_Integ1.0_retentiondata'
 #tg_dir = '/Users/GuestUser/Documents/Labwork/Memristor/Data Analysis Codes/Measurements 050123'
 
 # import data files - format should be CSV with info about resistance value, time, and target values
@@ -30,12 +30,15 @@ def import_data():
         meas_num = len(Ivals_total)
         cvals = 1e9*Ivals/1
         Ivals_total = np.concatenate((Ivals_total,Ivals),axis=0)
-        plt.plot(np.arange(meas_num, meas_num + len(Ivals)),cvals, color = 'tab:blue')
-        #plt.axhspan(1/Vtargmin,1/Vtargmax, color = 'mistyrose')
-        plt.plot(np.arange(meas_num, meas_num + len(Ivals)), np.full(len(Ivals),1e9*0.1/ Vtargmin), color='tab:orange')
-        plt.plot(np.arange(meas_num, meas_num + len(Ivals)), np.full(len(Ivals), 1e9*0.1/ Vtargmax), color='tab:orange')
+        if i%2 ==1:
+            plt.plot(np.arange(meas_num, meas_num + len(Ivals)),cvals, color = 'tab:blue')
+        else:
+            plt.plot(np.arange(meas_num, meas_num + len(Ivals)), cvals, color='tab:red')
+        plt.axhspan(1e8/Vtargmin,1e8/Vtargmax, color = 'mistyrose')
+        # plt.plot(np.arange(meas_num, meas_num + len(Ivals)), np.full(len(Ivals),1e9*0.1/ Vtargmin), color='tab:orange')
+        # plt.plot(np.arange(meas_num, meas_num + len(Ivals)), np.full(len(Ivals), 1e9*0.1/ Vtargmax), color='tab:orange')
 
-    plt.title('FIB3_U8_3: switching between six states', weight='bold', fontsize = 14)
+    plt.title('FIB3_U8_3: Switching Between Six States', weight='bold', fontsize = 14)
     plt.ylabel('Current through device (nA)', weight='bold', fontsize = 14)
     plt.xlabel('Measurement Number', weight='bold', fontsize = 14)
     #plt.legend()
