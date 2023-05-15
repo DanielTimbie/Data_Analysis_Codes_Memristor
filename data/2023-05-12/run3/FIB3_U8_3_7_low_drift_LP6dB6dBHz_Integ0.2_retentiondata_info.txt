@@ -1,0 +1,8 @@
+Useful scan information:
+
+Sensitivity: 11
+Integration time (*PLC): 0.2
+Integ time real (s): 0.0033333333333333335
+Sample time (s): 0.005
+Elapsed time (s): 51.08239940000931
+Sensitivity multiplier: 5e-09

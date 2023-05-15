@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # set target directory for retention plot - directory should contain CSV files for one device
-tg_dir = '/Users/GuestUser/Documents/Labwork/Memristor/Data Analysis Codes/data/FIB3_S8_1_50_low_drift_LP6dB6dBHz_Integ1.0_retentiondata'
+tg_dir = '/Users/daniel/Documents/Northwestern 2020-2023/Labwork/Memristor/Data_Analysis_Codes_Memristor/data/2023-05-12/run1/FIB3_U8_3_2_low_drift_LP6dB6dBHz_Integ0.2_retentiondata.csv'
 #tg_dir = '/Users/GuestUser/Documents/Labwork/Memristor/Data Analysis Codes/Measurements 050123'
 
 #colorlist = ('blue', 'red', 'orange', 'yellow', 'green', 'brown', 'indigo', 'black', 'violet', 'purple')

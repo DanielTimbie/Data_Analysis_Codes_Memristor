@@ -1,0 +1,11 @@
+For these noise measurements, we're hard coding the integration time to .2 * PLC,
+which is .2/60 = 3.3 ms or 300 Hz. Or 200 Hz is multiply the integration time by 1.5.
+Let's do hmmmm... 10000 samples which should only take 50 seconds.
+
+run 1, 2, 3 are all the same. They bounce and forth between 0.9e8,4.77e8 and 2.38e7,2.5e7.
+Then they take 10000 noise samples at 200 Hz, which takes around 50 seconds.
+
+run 4 do the same the bounce, but take 40000 noise samples at 200 Hz and lasts 200 seconds.
+
+
+2.38e7,2.5e7,0.9e8,4.77e8,2.38e7,2.5e7,0.9e8,4.77e8
