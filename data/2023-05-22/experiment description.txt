@@ -1,0 +1,19 @@
+Today we are performing noise measurements again under various conditions.
+
+The device under testing (DUT) is FIB3_U8_3.
+The integration time is .2 * PLC => 200 Hz after a buffer of 1.5
+The high resistance range is 5e8 to 1e10: 5e8,1e10
+The low resistance range is 2.38e7 to 2.5e7: 2.38e7,2.5e7
+The number of samples will be 40000 which lasts around 200 seconds
+
+After each dynamic scan, three sets of noise measurements will be made sequentially:
+	1. One with LNA measurement bias set to -0.1 V.
+	2. One with LNA measurement bias set to 0 V.
+	3. One with the ground probe lifted from the pad.
+
+Procedure:
+	1. Do a target resistance sweep with the above settings.
+	2. Change LNA bias to 0V, attach "noLNAbias" to device, click follow loop.
+	3. Lifting the ground probe off the pad, attach "noGNDprobe", click follow loop
+	4. Put down ground probe, change LNA bias back to -.1 V, and do 1.
+

@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # set target directory for retention plot - directory should contain CSV files for one device
-tg_dir = '/Users/daniel/Documents/Northwestern 2020-2023/Labwork/Memristor/Data_Analysis_Codes_Memristor/data/2023-05-12/run1/FIB3_U8_3_2_low_drift_LP6dB6dBHz_Integ0.2_retentiondata.csv'
+tg_dir = '/Users/daniel/Documents/Northwestern 2020-2023/Labwork/Memristor/Data_Analysis_Codes_Memristor/data/FIB3_denoise_test/Retention_Denoise'
 #tg_dir = '/Users/GuestUser/Documents/Labwork/Memristor/Data Analysis Codes/Measurements 050123'
 
 #colorlist = ('blue', 'red', 'orange', 'yellow', 'green', 'brown', 'indigo', 'black', 'violet', 'purple')
@@ -28,15 +28,15 @@ def import_data():
             print('Loading file: ' + i)
             rvals = np.loadtxt(tg_dir + '/' + i, delimiter=',', skiprows=1, usecols=0, dtype=float)
             cvals = 1/rvals
-            tvals = np.loadtxt(tg_dir + '/' + i, delimiter=',', skiprows=1, usecols=1, dtype=float)
-            rmin = np.loadtxt(tg_dir + '/' + i, delimiter=',', skiprows=1, usecols=2, dtype=float)[1]
-            rmax = np.loadtxt(tg_dir + '/' + i, delimiter=',', skiprows=1, usecols=3, dtype=float)[1]
+            tvals = np.loadtxt(tg_dir + '/' + i, delimiter=',', skiprows=1, usecols=2, dtype=float)
+            rmin = np.loadtxt(tg_dir + '/' + i, delimiter=',', skiprows=1, usecols=3, dtype=float)[1]
+            rmax = np.loadtxt(tg_dir + '/' + i, delimiter=',', skiprows=1, usecols=4, dtype=float)[1]
             str_minmax = str("{:e}".format(rmin)) + ' Ohms to ' + str("{:e}".format(rmax)) + ' Ohms'
             # plt.plot(tvals,cvals,linestyle = 'dashed', label = str_minmax)
             #plt.plot(tvals, cvals, linestyle='dashed', color = color_plotter(rmin, reslist), label=str_minmax)
             #plt.plot(tvals, np.log10(cvals), label=str_minmax)
-            plt.semilogy(tvals, cvals, linestyle='dashed', color = color_plotter(rmin, reslist), label=str_minmax)
-            plt.semilogy(tvals, cvals, '.', color='black')
+            plt.semilogy(tvals, cvals, color = color_plotter(rmin, reslist), label=str_minmax, linewidth = 0.5) #linestyle='dashed', color = color_plotter(rmin, reslist), label=str_minmax)
+            #plt.semilogy(tvals, cvals, '.', color='black')
             #plt.plot(tvals, cvals, '.', color='black')
             #plt.axhspan(1/rmin, 1/rmax, color = 'mistyrose')
             plt.axhspan(1/rmin, 1/rmax, color = 'mistyrose')
@@ -45,10 +45,10 @@ def import_data():
 
     #plt.ylabel('Resistance value (Ohms)')
     #plt.title('FIB3_S8_1: time drift of six states between 1e-7 and 1e-10')
-    plt.title('FIB3_U8_3: Time Drift of Six States', weight='bold', fontsize = 14)
+    plt.title('FIB3_M7_1: Time Drift of Two States - Denoised', weight='bold', fontsize = 14)
     plt.ylabel('Conductance value (S)', weight='bold', fontsize = 14)
     plt.xlabel('Time (s)', weight='bold', fontsize = 14)
-    #plt.xlim(0,800)
+    #plt.ylim(0,1e-5)
     #plt.legend()
     plt.show()
 
