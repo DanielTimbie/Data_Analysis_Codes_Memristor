@@ -19,7 +19,7 @@ def rangefind(rmin, rmax, level_num):
     return r_array
 
 
-rangefind(8e6, 1e10, 10)
+rangefind(1e7, 1e10, 50)
 
 # dynamic resistance range 1e7 - 1e9, want to get this in terms of conductance
 # dynamic conductance range 1nS - 1000nS
@@ -28,3 +28,6 @@ rangefind(8e6, 1e10, 10)
 # temp = 1e7-1.2e7, 1.5e7-1.97e7, 2.87e7-4.64e7, 1.8e8-5e9
 # 1.6e-8 in between levels
 # 1.3e-8 in between vals
+
+#9.1e8, 1e10
+#2.44e7, 2.5e7
