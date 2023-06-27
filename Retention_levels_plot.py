@@ -3,12 +3,18 @@ import numpy as np
 import os
 
 # set target directory for retention plot - directory should contain CSV files for one device
-tg_dir = '/Users/daniel/Documents/Northwestern 2020-2023/Labwork/Memristor/Data_Analysis_Codes_Memristor/data/FIB3_denoise_test/Retention_Denoise'
+# tg_dir = '/Users/daniel/Documents/Northwestern 2020-2023/Labwork/Memristor/Data_Analysis_Codes_Memristor/data/2023-06-06 6 state/six_state_standard'
+tg_dir = '/Users/daniel/Documents/Northwestern 2020-2023/Labwork/Memristor/Data_Analysis_Codes_Memristor/data/2023-06-19 8 state proportional measurements' 
 #tg_dir = '/Users/GuestUser/Documents/Labwork/Memristor/Data Analysis Codes/Measurements 050123'
 
 #colorlist = ('blue', 'red', 'orange', 'yellow', 'green', 'brown', 'indigo', 'black', 'violet', 'purple')
 colorlist = ('orange', 'yellow', 'green', 'brown', 'blue', 'indigo', 'red', 'black', 'violet', 'purple')
-reslist = (12200000.0, 45300000.0, 16100000.0, 10200000.0, 23800000.0, 477000000.0, 500000000)
+colorlist = ('#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#17becf')
+
+# reslist = (12200000.0, 45300000.0, 16100000.0, 10200000.0, 23800000.0, 477000000.0, 500000000)
+# reslist = (24400000.0, 30200000.0, 39900000.0, 58500000.0, 910000000.0, 110000000)
+reslist = (2.375e7, 2.713e7, 3.164e7, 3.794e7, 4.738e7, 6.307e7, 9.429e7, 1.867e8, 9.5e9)
+
 
 def color_plotter(input,resvals):
     len_vals = len(resvals)
@@ -45,10 +51,10 @@ def import_data():
 
     #plt.ylabel('Resistance value (Ohms)')
     #plt.title('FIB3_S8_1: time drift of six states between 1e-7 and 1e-10')
-    plt.title('FIB3_M7_1: Time Drift of Two States - Denoised', weight='bold', fontsize = 14)
+    plt.title('FIB3_M7_3: 8-prop-state retention', weight='bold', fontsize = 14)
     plt.ylabel('Conductance value (S)', weight='bold', fontsize = 14)
     plt.xlabel('Time (s)', weight='bold', fontsize = 14)
-    #plt.ylim(0,1e-5)
+    plt.ylim(0,1e-5)
     #plt.legend()
     plt.show()
 

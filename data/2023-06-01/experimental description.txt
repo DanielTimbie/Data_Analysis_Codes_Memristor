@@ -1,0 +1,14 @@
+Doing a bunch of retention measurements on FIB3_M7_1.
+
+High resistance: 9.1e8,1e10
+Low resistance: 2.44e7,2.5e7
+
+.2*PLC integration time
+lowest sensitivity: 9
+24000 retention samples => 24000*.005 = 120
+Start delay of: 1
+Auto range is off
+Pulse capped at 8V, -7V
+Starting pulse amplitude = 1V
+
+Resistance text: 9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7,9.1e8,1e10,2.44e7,2.5e7

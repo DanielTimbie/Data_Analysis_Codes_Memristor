@@ -1,0 +1,12 @@
+Useful scan information:
+
+Original sensitivity: 0
+Sensitivity: 10
+Integration time (*PLC): 0.2
+Integ time real (s): 0.0033333333333333335
+Sample time (s): 0.005
+Elapsed time (s): 121.20190369998454
+Sensitivity multiplier: 2e-09
+LNA measurement bias (V): -0.1
+Auto range on: True
+Start delay (s): 1

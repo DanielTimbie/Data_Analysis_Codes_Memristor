@@ -34,14 +34,14 @@ def StandardFourier(ys,fps):
     """
     fs = np.linspace(0,fps/2,len(ys)//2,endpoint=False)  #frequencies, in Hz, of half-spectrum
     fft = np.abs(np.fft.fft(ys)) / len(ys)
-    fft = fft[:len(ys)//2] * 2  #take only half the spectrum, so double the power
-    fft[0] /= 2  #undo the multiplication by 2 for the DC offset
+    fft = fft[:len(ys)//2] * np.sqrt(2)  #take only half the spectrum, so double the "power"-sqrt(2) times the amplitude
+    fft[0] /= np.sqrt(2)  #undo the multiplication by 2 for the DC offset
     return fs,fft
 
 def HanningApply(ys,show=False):
     """Applies a normalized Hanning filter to the given data, so that a fourier
     transform can be taken of it later.
-    
+
     Args:
         ys (array): Time-series of current in units of Amps.
         show (bool): Whether to plot the raw and filtered data.
@@ -53,7 +53,7 @@ def HanningApply(ys,show=False):
         plt.figure()
         plt.plot(ys)
         plt.plot(smoothed)
-    return smoothed/np.sqrt(1.5) #sqrt(1.5) normalizes the eventual fourier transform of this data
+    return smoothed*1.63 #Energy normalization factor
 
 def InterpFourierComponents(targetfs,knownfs,knowncomponents):
     """Interpolate fourier components to find components at unknown frequencies.
@@ -87,11 +87,8 @@ def ComponentsToSpectralDensity(freqs,components):
         array: The spectral density, in units of RMS-per-sqrt(Hz). (No, not
         Amps_rms, just RMS.)
     """
-    fps = (freqs[1]-freqs[0])*len(freqs)*2
-    #already handled: *2 from ignoring neg freqs, /len to average.
-    #Still needs: *sqrt(2): RMS; *sqrt(N/FPS): spectral density per sqrt(Hz). abs(): ignore complex
-    density = np.sqrt(2)*components*np.sqrt(2*len(freqs)/fps)  #2*len b/c this is only positive frequencies
-    density[0] /= np.sqrt(2)  #DC offset isn't I_rms
+    fps = (freqs[1]-freqs[0])
+    density = components*np.sqrt(1/fps)  
     return density
 
 ###---working toward non-uniform fourier transform
