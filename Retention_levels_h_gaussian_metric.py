@@ -15,7 +15,7 @@ from decimal import Decimal
 
 files_to_plot = []
 ctr = 0 
-while ctr < 3:
+while ctr < 18:
     number = ctr*6 + 1
     files_to_plot.append('/Users/daniel/Documents/Northwestern 2020-2023/Labwork/Memristor/Data_Analysis_Codes_Memristor/data/2023-06-06 6 state/six_state_standard/FIB3_M7_3_six_state_%s_low_drift_LP6dB6dBHz_Integ0.2_retentiondata.csv' % str(number))
     ctr += 1
@@ -41,7 +41,12 @@ def color_plotter(input,resvals):
 # file_path = filedialog.askopenfilename()
 
 # import data files - format should be CSV with info about resistance value, time, and target values
+
+mulist = []
+sigmalist = []
+
 def import_data():
+    global mulist,sigmalist
     plt.figure(dpi=120)
     plot1 = plt.subplot2grid((3, 10), (0, 0), rowspan=3, colspan=5)
     plot2 = plt.subplot2grid((3, 10), (0, 5), rowspan=3, colspan=5)
@@ -59,6 +64,8 @@ def import_data():
 
             #gaussian fit:
             (mu, sigma) = stats.norm.fit(cvals)
+            mulist = mulist + [mu]
+            sigmalist = sigmalist + [sigma]
 
             plot1.plot(tvals, cvals, label=str_minmax, color = colorlist_2[ctr], alpha = 0.6, linewidth = 0.5) #color = color_plotter(rmin, reslist), label=str_minmax, linewidth = 0.5)
             n, bins, patches = plot2.hist(cvals, 100, histtype='stepfilled', orientation='horizontal', density=True, ec="k", color = colorlist_2[ctr], alpha = 0.3, linewidth = 0.5) #label=str_minmax,
@@ -84,9 +91,12 @@ def import_data():
     # plot2.xaxis.set_ticklabels([])
     plot2.tick_params(left = False)
     plot2.set_yticklabels([])
-    plot2.legend()
+    # plot2.legend()
     plt.show()
 
 import_data()
 
-
+print('Average mu value:')
+print(np.average(mulist))
+print('Average sigma value:')
+print(np.average(sigmalist))
